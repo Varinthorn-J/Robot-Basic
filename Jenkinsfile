@@ -27,5 +27,15 @@ pipeline {
                 echo 'Releasing'
             }
         }
+        stage ('Activate Virtual Env')
+        {
+            steps {
+                sh '''
+                    pip install virtualenv
+                    virtualenv env
+                    env/Scripts/activate
+                '''
+            }
+        }
     }
 }
