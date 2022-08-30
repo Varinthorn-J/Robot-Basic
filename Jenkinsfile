@@ -5,11 +5,6 @@ pipeline {
         stage('Hello') {
             steps {
                 echo 'Hello World'
-                sh '''
-                    pip3 install virtualenv
-                    virtualenv env
-                    source env/bin/activate
-                '''
             }
         }
           stage('Build') {
