@@ -1,0 +1,13 @@
+robotframework
+robotframework-selenium2library
+PyYAML
+numpy
+requests==2.26.0
+PyYAML==5.3.1
+robotframework-requests==0.7.1
+robotframework-databaselibrary==1.2.4
+robotframework-jsonlibrary==0.3.1
+robotframework-redislibrary==1.2.3
+redis==3.5.3
+psycopg2-binary==2.8.6
+redis-py-cluster==2.1.3

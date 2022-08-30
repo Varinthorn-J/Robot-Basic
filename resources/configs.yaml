@@ -1,0 +1,14 @@
+lotuss_web : "https://www.lotuss.com/th"
+input_username : //*[@class="MuiInputBase-input MuiFilledInput-input"]
+username : #your username
+input_password : //input[@id='password']
+password : #your password
+search_input : //input[@id="search-bar-input"]
+profile : //*[@id="my-profile-button"]/img[1]
+search_result : //*[@id="spa-root"]/div/div[1]/div[2]/div[1]/div/div[1]/div/p[1]
+
+input_phone : //*[@id="register-container"]/div/div[1]/div/div[2]
+input_text : //*[@autocomplete="new-password"]
+phone : "113456789"
+button_comfirm : //*[@id="spa-root"]/div[2]/div/div/div/div[2]/button
+my-lotuss_web : "https://mylotussregister.lotuss.com/th"
