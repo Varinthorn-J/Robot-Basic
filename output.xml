@@ -1,88 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.9.12 on win32)" generated="20220830 14:47:57.017" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.9.12 on win32)" generated="20220830 15:04:46.316" rpa="false" schemaversion="3">
 <suite id="s1" name="Get Current Date Time" source="D:\work\Assignment\git-flow\assignment_lotuss_web\testcases\get_current_date_time.robot">
-<test id="s1-t1" name="TC-001 Get Current DateTime" line="6">
+<test id="s1-t1" name="TC-001 Get Current DateTime" line="7">
+<kw name="get_current_date_time_default_format" library="get_current_date_time_keywords">
+<kw name="Get Current Date" library="DateTime">
+<var>${current}</var>
+<arg>result_format=%d/%m/%Y %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20220830 15:04:46.802" level="INFO">${current} = 30/08/2022 15:04:46</msg>
+<status status="PASS" starttime="20220830 15:04:46.802" endtime="20220830 15:04:46.802"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>CUERENT TIME AND DATE ${current}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220830 15:04:46.802" endtime="20220830 15:04:46.803"/>
+</kw>
+<status status="PASS" starttime="20220830 15:04:46.801" endtime="20220830 15:04:46.803"/>
+</kw>
 <kw name="get_current_date_time_format" library="get_current_date_time_keywords">
 <kw name="Get Current Date" library="DateTime">
 <var>${current}</var>
 <arg>result_format=%Y-%m-%dT%H:%M:%S.%f</arg>
 <doc>Returns current local or UTC time with an optional increment.</doc>
-<msg timestamp="20220830 14:47:57.523" level="INFO">${current} = 2022-08-30T14:47:57.522605</msg>
-<status status="PASS" starttime="20220830 14:47:57.523" endtime="20220830 14:47:57.523"/>
+<msg timestamp="20220830 15:04:46.804" level="INFO">${current} = 2022-08-30T15:04:46.803398</msg>
+<status status="PASS" starttime="20220830 15:04:46.803" endtime="20220830 15:04:46.804"/>
 </kw>
 <kw name="Convert Date" library="DateTime">
 <var>${current_day}</var>
 <arg>${current}</arg>
 <arg>result_format=%d</arg>
 <doc>Converts between supported `date formats`.</doc>
-<msg timestamp="20220830 14:47:57.526" level="INFO">${current_day} = 30</msg>
-<status status="PASS" starttime="20220830 14:47:57.523" endtime="20220830 14:47:57.526"/>
+<msg timestamp="20220830 15:04:46.807" level="INFO">${current_day} = 30</msg>
+<status status="PASS" starttime="20220830 15:04:46.804" endtime="20220830 15:04:46.807"/>
 </kw>
 <kw name="Convert Date" library="DateTime">
 <var>${current_month}</var>
 <arg>${current}</arg>
 <arg>result_format=%m</arg>
 <doc>Converts between supported `date formats`.</doc>
-<msg timestamp="20220830 14:47:57.526" level="INFO">${current_month} = 08</msg>
-<status status="PASS" starttime="20220830 14:47:57.526" endtime="20220830 14:47:57.526"/>
+<msg timestamp="20220830 15:04:46.807" level="INFO">${current_month} = 08</msg>
+<status status="PASS" starttime="20220830 15:04:46.807" endtime="20220830 15:04:46.807"/>
 </kw>
 <kw name="Convert Date" library="DateTime">
 <var>${current_year}</var>
 <arg>${current}</arg>
 <arg>result_format=%Y</arg>
 <doc>Converts between supported `date formats`.</doc>
-<msg timestamp="20220830 14:47:57.527" level="INFO">${current_year} = 2022</msg>
-<status status="PASS" starttime="20220830 14:47:57.527" endtime="20220830 14:47:57.527"/>
+<msg timestamp="20220830 15:04:46.808" level="INFO">${current_year} = 2022</msg>
+<status status="PASS" starttime="20220830 15:04:46.808" endtime="20220830 15:04:46.808"/>
 </kw>
 <kw name="Convert Date" library="DateTime">
 <var>${current_time_hour}</var>
 <arg>${current}</arg>
 <arg>result_format=%H</arg>
 <doc>Converts between supported `date formats`.</doc>
-<msg timestamp="20220830 14:47:57.527" level="INFO">${current_time_hour} = 14</msg>
-<status status="PASS" starttime="20220830 14:47:57.527" endtime="20220830 14:47:57.527"/>
+<msg timestamp="20220830 15:04:46.808" level="INFO">${current_time_hour} = 15</msg>
+<status status="PASS" starttime="20220830 15:04:46.808" endtime="20220830 15:04:46.808"/>
 </kw>
 <kw name="Convert Date" library="DateTime">
 <var>${current_time_min}</var>
 <arg>${current}</arg>
 <arg>result_format=%M</arg>
 <doc>Converts between supported `date formats`.</doc>
-<msg timestamp="20220830 14:47:57.528" level="INFO">${current_time_min} = 47</msg>
-<status status="PASS" starttime="20220830 14:47:57.527" endtime="20220830 14:47:57.528"/>
+<msg timestamp="20220830 15:04:46.809" level="INFO">${current_time_min} = 04</msg>
+<status status="PASS" starttime="20220830 15:04:46.808" endtime="20220830 15:04:46.809"/>
 </kw>
 <kw name="Convert Date" library="DateTime">
 <var>${current_time_sec}</var>
 <arg>${current}</arg>
 <arg>result_format=%S</arg>
 <doc>Converts between supported `date formats`.</doc>
-<msg timestamp="20220830 14:47:57.528" level="INFO">${current_time_sec} = 57</msg>
-<status status="PASS" starttime="20220830 14:47:57.528" endtime="20220830 14:47:57.528"/>
+<msg timestamp="20220830 15:04:46.809" level="INFO">${current_time_sec} = 46</msg>
+<status status="PASS" starttime="20220830 15:04:46.809" endtime="20220830 15:04:46.809"/>
 </kw>
 <kw name="Convert Date" library="DateTime">
 <var>${current_time_mil_sec}</var>
 <arg>${current}</arg>
 <arg>result_format=%f</arg>
 <doc>Converts between supported `date formats`.</doc>
-<msg timestamp="20220830 14:47:57.529" level="INFO">${current_time_mil_sec} = 522605</msg>
-<status status="PASS" starttime="20220830 14:47:57.528" endtime="20220830 14:47:57.529"/>
+<msg timestamp="20220830 15:04:46.810" level="INFO">${current_time_mil_sec} = 803398</msg>
+<status status="PASS" starttime="20220830 15:04:46.809" endtime="20220830 15:04:46.810"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${current_format}</arg>
 <arg>${current_year}-${current_month}-${current_day} ${current_time_hour}:${current_time_min}:${current_time_sec}.${current_time_mil_sec}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20220830 14:47:57.531" level="INFO">${current_format} = 2022-08-30 14:47:57.522605</msg>
-<status status="PASS" starttime="20220830 14:47:57.529" endtime="20220830 14:47:57.531"/>
+<msg timestamp="20220830 15:04:46.811" level="INFO">${current_format} = 2022-08-30 15:04:46.803398</msg>
+<status status="PASS" starttime="20220830 15:04:46.810" endtime="20220830 15:04:46.811"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>CUERENT TIME AND DATE ${current_format}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220830 14:47:57.531" endtime="20220830 14:47:57.531"/>
+<status status="PASS" starttime="20220830 15:04:46.811" endtime="20220830 15:04:46.812"/>
 </kw>
-<status status="PASS" starttime="20220830 14:47:57.522" endtime="20220830 14:47:57.532"/>
+<status status="PASS" starttime="20220830 15:04:46.803" endtime="20220830 15:04:46.812"/>
 </kw>
-<status status="PASS" starttime="20220830 14:47:57.522" endtime="20220830 14:47:57.532"/>
+<status status="PASS" starttime="20220830 15:04:46.801" endtime="20220830 15:04:46.813"/>
 </test>
-<status status="PASS" starttime="20220830 14:47:57.019" endtime="20220830 14:47:57.534"/>
+<status status="PASS" starttime="20220830 15:04:46.318" endtime="20220830 15:04:46.814"/>
 </suite>
 <statistics>
 <total>

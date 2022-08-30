@@ -27,5 +27,24 @@ pipeline {
                 echo 'Releasing'
             }
         }
+         stage ('Activate Virtual Env')
+        {
+            steps {
+                sh '''
+                    pip3 install virtualenv
+                    virtualenv env
+                    source env/bin/activate
+                '''
+            }
+        }
+        stage ('Prepare Library')
+        {
+            steps {
+                sh '''
+                    pip3 install -r requirements.txt
+                '''
+            }
+        }
+
     }
 }
