@@ -1,8 +1,8 @@
 lotuss_web : "https://www.lotuss.com/th"
 input_username : //*[@class="MuiInputBase-input MuiFilledInput-input"]
-username : #your username
+username : 0909010166
 input_password : //input[@id='password']
-password : #your password
+password : Pao0909010166
 search_input : //input[@id="search-bar-input"]
 profile : //*[@id="my-profile-button"]/img[1]
 search_result : //*[@id="spa-root"]/div/div[1]/div[2]/div[1]/div/div[1]/div/p[1]
