@@ -1,103 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.9.12 on win32)" generated="20220830 15:04:46.316" rpa="false" schemaversion="3">
-<suite id="s1" name="Get Current Date Time" source="D:\work\Assignment\git-flow\assignment_lotuss_web\testcases\get_current_date_time.robot">
-<test id="s1-t1" name="TC-001 Get Current DateTime" line="7">
-<kw name="get_current_date_time_default_format" library="get_current_date_time_keywords">
-<kw name="Get Current Date" library="DateTime">
-<var>${current}</var>
-<arg>result_format=%d/%m/%Y %H:%M:%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<msg timestamp="20220830 15:04:46.802" level="INFO">${current} = 30/08/2022 15:04:46</msg>
-<status status="PASS" starttime="20220830 15:04:46.802" endtime="20220830 15:04:46.802"/>
+<robot generator="Robot 5.0.1 (Python 3.9.12 on win32)" generated="20220913 17:41:39.092" rpa="false" schemaversion="3">
+<suite id="s1" name="Login Test" source="D:\work\Assignment\git-flow\assignment_lotuss_web\testcases\login_test.robot">
+<test id="s1-t1" name="TC-001 Login my-lotuss web" line="6">
+<kw name="go to lotuss web" library="login_test_keywords">
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${lotuss_web}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220913 17:41:39.682" level="INFO">Opening browser 'chrome' to base url 'https://www.lotuss.com/th'.</msg>
+<status status="PASS" starttime="20220913 17:41:39.682" endtime="20220913 17:41:42.480"/>
 </kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>CUERENT TIME AND DATE ${current}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220830 15:04:46.802" endtime="20220830 15:04:46.803"/>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220913 17:41:42.480" endtime="20220913 17:41:42.598"/>
 </kw>
-<status status="PASS" starttime="20220830 15:04:46.801" endtime="20220830 15:04:46.803"/>
+<status status="PASS" starttime="20220913 17:41:39.681" endtime="20220913 17:41:42.599"/>
 </kw>
-<kw name="get_current_date_time_format" library="get_current_date_time_keywords">
-<kw name="Get Current Date" library="DateTime">
-<var>${current}</var>
-<arg>result_format=%Y-%m-%dT%H:%M:%S.%f</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<msg timestamp="20220830 15:04:46.804" level="INFO">${current} = 2022-08-30T15:04:46.803398</msg>
-<status status="PASS" starttime="20220830 15:04:46.803" endtime="20220830 15:04:46.804"/>
+<kw name="login" library="login_test_keywords">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${button_comfirm}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220913 17:41:42.600" endtime="20220913 17:41:44.034"/>
 </kw>
-<kw name="Convert Date" library="DateTime">
-<var>${current_day}</var>
-<arg>${current}</arg>
-<arg>result_format=%d</arg>
-<doc>Converts between supported `date formats`.</doc>
-<msg timestamp="20220830 15:04:46.807" level="INFO">${current_day} = 30</msg>
-<status status="PASS" starttime="20220830 15:04:46.804" endtime="20220830 15:04:46.807"/>
+<kw name="Click Button" library="Selenium2Library">
+<arg>${button_comfirm}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220913 17:41:44.035" level="INFO">Clicking button '//*[@id="spa-root"]/div[2]/div/div/div/div[2]/button'.</msg>
+<status status="PASS" starttime="20220913 17:41:44.034" endtime="20220913 17:41:44.298"/>
 </kw>
-<kw name="Convert Date" library="DateTime">
-<var>${current_month}</var>
-<arg>${current}</arg>
-<arg>result_format=%m</arg>
-<doc>Converts between supported `date formats`.</doc>
-<msg timestamp="20220830 15:04:46.807" level="INFO">${current_month} = 08</msg>
-<status status="PASS" starttime="20220830 15:04:46.807" endtime="20220830 15:04:46.807"/>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>//*[@id="header-login-link"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220913 17:41:44.298" endtime="20220913 17:41:44.359"/>
 </kw>
-<kw name="Convert Date" library="DateTime">
-<var>${current_year}</var>
-<arg>${current}</arg>
-<arg>result_format=%Y</arg>
-<doc>Converts between supported `date formats`.</doc>
-<msg timestamp="20220830 15:04:46.808" level="INFO">${current_year} = 2022</msg>
-<status status="PASS" starttime="20220830 15:04:46.808" endtime="20220830 15:04:46.808"/>
+<kw name="Click Element" library="Selenium2Library">
+<arg>//*[@id="header-login-link"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220913 17:41:44.360" level="INFO">Clicking element '//*[@id="header-login-link"]'.</msg>
+<status status="PASS" starttime="20220913 17:41:44.359" endtime="20220913 17:41:44.584"/>
 </kw>
-<kw name="Convert Date" library="DateTime">
-<var>${current_time_hour}</var>
-<arg>${current}</arg>
-<arg>result_format=%H</arg>
-<doc>Converts between supported `date formats`.</doc>
-<msg timestamp="20220830 15:04:46.808" level="INFO">${current_time_hour} = 15</msg>
-<status status="PASS" starttime="20220830 15:04:46.808" endtime="20220830 15:04:46.808"/>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${input_username}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220913 17:41:44.584" endtime="20220913 17:41:45.250"/>
 </kw>
-<kw name="Convert Date" library="DateTime">
-<var>${current_time_min}</var>
-<arg>${current}</arg>
-<arg>result_format=%M</arg>
-<doc>Converts between supported `date formats`.</doc>
-<msg timestamp="20220830 15:04:46.809" level="INFO">${current_time_min} = 04</msg>
-<status status="PASS" starttime="20220830 15:04:46.808" endtime="20220830 15:04:46.809"/>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${input_username}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220913 17:41:45.251" level="INFO">Typing text '0909010166' into text field '//*[@class="MuiInputBase-input MuiFilledInput-input"]'.</msg>
+<status status="PASS" starttime="20220913 17:41:45.250" endtime="20220913 17:41:45.690"/>
 </kw>
-<kw name="Convert Date" library="DateTime">
-<var>${current_time_sec}</var>
-<arg>${current}</arg>
-<arg>result_format=%S</arg>
-<doc>Converts between supported `date formats`.</doc>
-<msg timestamp="20220830 15:04:46.809" level="INFO">${current_time_sec} = 46</msg>
-<status status="PASS" starttime="20220830 15:04:46.809" endtime="20220830 15:04:46.809"/>
+<kw name="Input Password" library="Selenium2Library">
+<arg>${input_password}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220913 17:41:45.691" level="INFO">Typing password into text field '//input[@id='password']'.</msg>
+<msg timestamp="20220913 17:41:45.735" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220913 17:41:45.852" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220913 17:41:45.690" endtime="20220913 17:41:45.852"/>
 </kw>
-<kw name="Convert Date" library="DateTime">
-<var>${current_time_mil_sec}</var>
-<arg>${current}</arg>
-<arg>result_format=%f</arg>
-<doc>Converts between supported `date formats`.</doc>
-<msg timestamp="20220830 15:04:46.810" level="INFO">${current_time_mil_sec} = 803398</msg>
-<status status="PASS" starttime="20220830 15:04:46.809" endtime="20220830 15:04:46.810"/>
+<kw name="Click Button" library="Selenium2Library">
+<arg>//*[@id="login"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220913 17:41:45.852" level="INFO">Clicking button '//*[@id="login"]'.</msg>
+<status status="PASS" starttime="20220913 17:41:45.852" endtime="20220913 17:41:45.990"/>
 </kw>
-<kw name="Set Global Variable" library="BuiltIn">
-<arg>${current_format}</arg>
-<arg>${current_year}-${current_month}-${current_day} ${current_time_hour}:${current_time_min}:${current_time_sec}.${current_time_mil_sec}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20220830 15:04:46.811" level="INFO">${current_format} = 2022-08-30 15:04:46.803398</msg>
-<status status="PASS" starttime="20220830 15:04:46.810" endtime="20220830 15:04:46.811"/>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${profile}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220913 17:41:45.990" endtime="20220913 17:41:48.983"/>
 </kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>CUERENT TIME AND DATE ${current_format}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220830 15:04:46.811" endtime="20220830 15:04:46.812"/>
+<kw name="Page Should Contain Element" library="Selenium2Library">
+<arg>${profile}</arg>
+<arg>Success</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220913 17:41:49.080" level="INFO">Current page contains element '//*[@id="my-profile-button"]/img[1]'.</msg>
+<status status="PASS" starttime="20220913 17:41:48.983" endtime="20220913 17:41:49.080"/>
 </kw>
-<status status="PASS" starttime="20220830 15:04:46.803" endtime="20220830 15:04:46.812"/>
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220913 17:41:49.081" endtime="20220913 17:41:51.229"/>
 </kw>
-<status status="PASS" starttime="20220830 15:04:46.801" endtime="20220830 15:04:46.813"/>
+<status status="PASS" starttime="20220913 17:41:42.599" endtime="20220913 17:41:51.229"/>
+</kw>
+<status status="PASS" starttime="20220913 17:41:39.681" endtime="20220913 17:41:51.230"/>
 </test>
-<status status="PASS" starttime="20220830 15:04:46.318" endtime="20220830 15:04:46.814"/>
+<status status="PASS" starttime="20220913 17:41:39.093" endtime="20220913 17:41:51.231"/>
 </suite>
 <statistics>
 <total>
@@ -106,7 +95,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Get Current Date Time">Get Current Date Time</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Login Test">Login Test</stat>
 </suite>
 </statistics>
 <errors>
