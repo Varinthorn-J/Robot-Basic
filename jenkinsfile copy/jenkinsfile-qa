@@ -1,0 +1,94 @@
+pipeline {
+	agent {label 'slave-linux'}
+
+	environment {
+        TEST_ENV = "qa"
+		TEST_RESULT = "FAILED"
+		TEST_API_CORE= "${params.CoreAPIType}"
+    }
+
+    parameters {
+        string (
+            name: 'TestBranch',
+            defaultValue: "develop",
+            description: 'please fill your test branch',
+        )
+        choice (
+            name: 'CoreAPIType',
+            choices: ['*', 'api'],
+            description: 'to define core api type when testing',
+        )
+    }
+
+    stages {
+
+        stage("pull scm test") {
+            steps {
+            checkout([$class: 'GitSCM',
+            branches: [[name: "${params.TestBranch}"]],
+            doGenerateSubmoduleConfigurations: false,
+            extensions: [[$class: 'CloneOption', timeout: 120]],
+            submoduleCfg: [],
+            userRemoteConfigs: [[credentialsId: "${GITLAB_CRED}", url: "${GITLAB_EAPI}/qa/varinthorn-test.git"]]
+
+        ])}}
+
+        stage ('Activate Virtual Env')
+        {
+            steps {
+                sh '''
+                    pip3 install virtualenv
+                    virtualenv venv
+                    source env/bin/activate
+                '''
+            }
+        }
+        stage ('Prepare Library')
+        {
+            steps {
+                sh '''
+                    pip3 install -r requirements.txt
+                '''
+            }
+        }
+
+        stage ('Run Regression Test')
+        {
+            steps {
+				echo "Deploying with param ${TEST_API_CORE}"
+                sh '''
+                    robot -d result_${BUILD_NUMBER} -x result -v ENV:${TEST_ENV} -i regression ./testcases/${TEST_API_CORE}
+                '''
+                script {
+						TEST_RESULT = "SUCCESS"
+					}
+            }
+			post {
+				always {
+					script {
+					  step(
+							[
+							  $class              : 'RobotPublisher',
+							  outputPath          : "result_${BUILD_NUMBER}",
+							  outputFileName      : 'output.xml',
+							  reportFileName      : 'report.html',
+							  logFileName         : 'log.html',
+							  disableArchiveOutput: false,
+							  passThreshold       : 100,
+							  unstableThreshold   : 90,
+							  otherFiles          : "*.png,*.jpg",
+							]
+						)
+					}
+
+				}
+				failure {
+					script {
+						TEST_RESULT = "FAILED"
+					}
+				}
+			}
+        }
+    }
+
+}
