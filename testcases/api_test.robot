@@ -18,7 +18,6 @@ ${en}  en
 http response status from '${response}' should be '${expected_http_response_status}'
   should be equal as integers  ${response.status_code}  ${${expected_http_response_status}}  valid http status
 
-
 *** Test Cases ***
 TC-001-get api test ex-01
   Create Session  get_api  ${base_url}
